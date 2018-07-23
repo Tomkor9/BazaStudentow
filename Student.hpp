@@ -2,17 +2,19 @@
 #include<string>
 #include<iostream>
 
-struct Student{
+struct student
+{
+	static const char alias = 's';
+	std::string name, surname;
+	int index;
+	float average;
 
-    std::string name, surname;
-    int index_nr;
-    float average_grade;
+	//new default constructor
+	student(std::string nam = "", std::string surnam = "", int ind = 0000, float avr = 0.0F) :
+		name(nam), surname(surnam), index(ind), average(avr) {}
 
-    Student(std::string n, std::string s, int i, float a){
-        name = n;
-        surname = s;
-        index_nr = i;
-        average_grade = a;
-    };
-    ~Student(){};
+	void show() {
+		std::cout << student::alias << " " << name << " " << surname << " "
+			<< index << " " << average << std::endl;
+	}
 };

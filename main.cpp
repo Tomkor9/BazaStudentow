@@ -1,25 +1,29 @@
 #include "Student.hpp"
 #include "Base.hpp"
+#include "Employee.hpp"
 
 #include <assert.h>
-#include <iostream>
 
-int main(){
+int main() {
 
-    Base base;
-   
-    
-    Student s1("Jan", "Kowalski", 123, 5.4);
-    Student s2 = {"Adam", "Nowak", 222, 3.2};
-    Student s3 = {"Maria", "Nowak", 111, 4.0};
+	Base b;
 
-    base.AddNewStudent(s1);
-    base.AddNewStudent(s2);
-    base.AddNewStudent(s3);
-    
-    base.SortByIndex();
-    base.DisplayBase();
-   
+	employee Edward("Edward", "Acki", 5300);
+	employee Fredek("Fredek", "Kredkowski", 3190);
+	student Bob("Bob", "Nally", 6254, 3.2F);
+	student Steve("Steve", "Pros", 7732, 5.3F);
 
-    
+	b.AddNewEmployee(Edward);
+	b.AddNewEmployee(Fredek);
+	b.AddNewStudent(Steve);
+	b.AddNewStudent(Bob);
+
+	b.SortByIndex();
+	b.ExportToFile("data.txt");
+	b.ImportFromFile("data.txt");
+	b.DeleteByIndex(6254);
+	b.DisplayBase();	//displays instances from memorry and loaded from file
+						//that's why displayed data is duplicated
+	std::cin.get();
+	return 0;
 }
